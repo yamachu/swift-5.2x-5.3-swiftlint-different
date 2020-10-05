@@ -1,0 +1,31 @@
+name: swift
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        xcode: [Xcode_12.app, Xcode_11.7.app]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Switch Xcode version
+      run: sudo xcode-select -s /Applications/${{ matrix.xcode }}
+    - name: Cache Pods
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-pods
+      with:
+        path: ./Pods
+        key: ${{ runner.os }}-build-${{ matrix.xcode }}-${{ env.cache-name }}-${{ hashFiles('./Podfile.lock') }}
+    - name: CocoaPods
+      run: make install
+    - name: Xcode version
+      run: xcodebuild -version
+    - name: Swift version
+      run: swift --version
+    - name: Format
+      run: make lint lint/correct
+    - name: Detect diff
+      run: git diff HEAD --exit-code
