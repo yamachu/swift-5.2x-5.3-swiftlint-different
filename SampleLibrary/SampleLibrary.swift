@@ -6,9 +6,11 @@ class SampleLibrary {
         let b: String? = "World"
 
         // below lines will be formatted
+        // swiftlint:disable indentation_width
         if let c = a,
            let d = b {
             print(c + d)
         }
+        // swiftlint:enable indentation_width
     }
 }
