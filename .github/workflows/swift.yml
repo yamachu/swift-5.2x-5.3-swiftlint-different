@@ -8,6 +8,7 @@ jobs:
     strategy:
       matrix:
         xcode: [Xcode_12.app, Xcode_11.7.app]
+      fail-fast: false
     steps:
     - uses: actions/checkout@v2
     - name: Switch Xcode version
