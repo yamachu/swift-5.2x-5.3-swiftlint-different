@@ -7,6 +7,7 @@ target 'SampleLibrary' do
 
   # Pods for SampleLibrary
   pod 'SwiftLint', '0.40.3'
+  pod 'FlexLayout', '1.3.20'
 
   target 'SampleLibraryTests' do
     # Pods for testing
