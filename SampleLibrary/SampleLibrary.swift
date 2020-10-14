@@ -1,4 +1,5 @@
 import Foundation
+import FlexLayout
 
 class SampleLibrary {
     func invalidIndentionWidth() {
@@ -12,5 +13,9 @@ class SampleLibrary {
             print(c + d)
         }
         // swiftlint:enable indentation_width
+    }
+
+    func callFlexLayoutMethod() {
+        let _ = UIView().flex.addItem()
     }
 }
