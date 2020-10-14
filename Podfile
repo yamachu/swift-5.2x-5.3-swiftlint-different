@@ -14,3 +14,10 @@ target 'SampleLibrary' do
   end
 
 end
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    # https://github.com/actions/virtual-environments/issues/1804
+    config.build_settings['CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER'] = 'NO'
+  end
+end
