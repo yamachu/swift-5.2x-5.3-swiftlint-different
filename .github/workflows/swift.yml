@@ -29,6 +29,6 @@ jobs:
     - name: Format
       run: make lint lint/correct
     - name: Detect diff
-      run: git diff HEAD --exit-code
+      run: git diff HEAD --exit-code || echo 'Diff detected'
     - name: Build
       run: xcodebuild -workspace SampleLibrary.xcworkspace -scheme SampleLibrary -sdk iphonesimulator -configuration Debug build
