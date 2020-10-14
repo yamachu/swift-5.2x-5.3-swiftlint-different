@@ -16,6 +16,6 @@ class SampleLibrary {
     }
 
     func callFlexLayoutMethod() {
-        let _ = UIView().flex.addItem()
+        _ = UIView().flex.addItem()
     }
 }
