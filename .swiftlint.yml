@@ -3,3 +3,9 @@ disabled_rules:
 
 opt_in_rules:
   - indentation_width
+
+excluded:
+  - Pods
+
+identifier_name:
+  min_length: 1
